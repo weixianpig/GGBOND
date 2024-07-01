@@ -4,30 +4,24 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * 0'  # 每周日运行
 
 jobs:
   train:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.8
+          python-version: '3.x'
 
       - name: Install dependencies
         run: |
-          pip install ultralytics opencv-python-headless
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Train YOLOv8 model
+      - name: Run training
         run: |
-          python -c "
-          from ultralytics import YOLO;
-          model = YOLO('yolov8n.pt');
-          model.train(data='path/to/dataset.yaml', epochs=50, imgsz=640);
-          "
+          python train_yolo.py
