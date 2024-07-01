@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/liangweixian/Downloads/管理系统/app.py", line 5, in <module>
+    from openpose import pyopenpose as op
+ModuleNotFoundError: No module named 'openpose'
