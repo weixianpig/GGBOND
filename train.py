@@ -3,7 +3,6 @@ import torchvision
 import numpy as np
 import cv2
 
-# Sample training script
 def train():
     print("Training model...")
 
