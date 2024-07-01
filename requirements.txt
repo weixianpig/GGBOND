@@ -7,7 +7,3 @@ requests
 scipy
 ultralytics
 numpy
-torch
-torchvision
-numpy
-opencv-python
