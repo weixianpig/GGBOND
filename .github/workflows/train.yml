@@ -21,5 +21,4 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run training
-      run: |
-        python train.py --img 640 --batch 16 --epochs 50 --data coco.yaml --weights yolov8n.pt
+      run: python train.py --img 640 --batch 16 --epochs 50 --data coco.yaml --weights yolov8n.pt
