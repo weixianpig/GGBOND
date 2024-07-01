@@ -1,12 +1,16 @@
 name: Train YOLOv8 Model
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   train:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Python
@@ -20,4 +24,5 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run training
-        run: python train.py
+        run: |
+          python train.py --img 640 --batch 16 --epochs 3 --data coco128.yaml --weights yolov8s.pt
