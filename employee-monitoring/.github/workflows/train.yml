@@ -28,4 +28,4 @@ jobs:
 
     - name: Run training
       run: |
-        python GGBOND/employee-monitoring/train.py --img 640 --batch 16 --epochs 50 --data coco.yaml --weights yolov8n.pt
+        python employee-monitoring/src/train.py --img 640 --batch 16 --epochs 50 --data coco.yaml --weights yolov8n.pt
